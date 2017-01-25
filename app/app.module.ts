@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {FormsModule} from '@angular/forms';
+
 
 import { AppComponent } from './app.component';
-import {CarFormComponent} from './car-form.component';
+import { AboutComponent } from './about.component';
+
+import { CarModule } from './cars/cars.module';
+
+import { Routing } from './app.routing';
 
 
 @NgModule({
-    imports: [BrowserModule, FormsModule],
-    declarations: [AppComponent, CarFormComponent],
+    imports: [BrowserModule, Routing, CarModule],
+    declarations: [AppComponent, AboutComponent],
     bootstrap: [AppComponent]
 })
 
