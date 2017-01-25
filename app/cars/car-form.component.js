@@ -29,7 +29,7 @@ var CarFormComponent = (function () {
             'Trucks',
             'Wagons'
         ];
-        this.model = new car_1.Car(1, 'BMW', 'X5', this.fuelTypes[1], this.bodyStyle[5], 350, 25);
+        this.model = new car_1.Car('1', 'BMW', 'X5', this.fuelTypes[1], this.bodyStyle[5], 350, 25);
     }
     CarFormComponent.prototype.onSubmit = function () {
         this.submitted = true;
@@ -43,8 +43,9 @@ var CarFormComponent = (function () {
     });
     CarFormComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'car-form',
-            templateUrl: 'app/car-form.component.html'
+            templateUrl: 'car-form.component.html'
         }), 
         __metadata('design:paramtypes', [])
     ], CarFormComponent);

@@ -9,23 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var app_component_1 = require('./app.component');
-//import { AboutComponent } from './about.component';
-var cars_module_1 = require('./cars/cars.module');
-var app_routing_1 = require('./app.routing');
-var AppModule = (function () {
-    function AppModule() {
+var mock_cars_1 = require('./mock-cars');
+var CarService = (function () {
+    function CarService() {
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, app_routing_1.Routing, cars_module_1.CarModule],
-            declarations: [app_component_1.AppComponent],
-            bootstrap: [app_component_1.AppComponent]
-        }), 
+    CarService.prototype.getCars = function () {
+        return Promise.resolve(mock_cars_1.CARS);
+    };
+    CarService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], CarService);
+    return CarService;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.CarService = CarService;
+//# sourceMappingURL=car.service.js.map

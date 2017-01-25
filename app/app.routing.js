@@ -9,23 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var app_component_1 = require('./app.component');
+//import { ModuleWithProviders } from '@angular/core';
+var router_1 = require('@angular/router');
 //import { AboutComponent } from './about.component';
-var cars_module_1 = require('./cars/cars.module');
-var app_routing_1 = require('./app.routing');
-var AppModule = (function () {
-    function AppModule() {
+var appRoutes = [
+    { path: '', redirectTo: '/cars', pathMatch: 'full' }
+];
+//export const carsRouting: ModuleWithProviders = RouterModule.forChild(carsRoutes);
+var Routing = (function () {
+    function Routing() {
     }
-    AppModule = __decorate([
+    Routing = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, app_routing_1.Routing, cars_module_1.CarModule],
-            declarations: [app_component_1.AppComponent],
-            bootstrap: [app_component_1.AppComponent]
+            imports: [router_1.RouterModule.forRoot(appRoutes)],
+            exports: [router_1.RouterModule]
         }), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], Routing);
+    return Routing;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.Routing = Routing;
+//# sourceMappingURL=app.routing.js.map

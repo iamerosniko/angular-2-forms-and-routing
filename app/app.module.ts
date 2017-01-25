@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 
 import { AppComponent } from './app.component';
-import { AboutComponent } from './about.component';
+//import { AboutComponent } from './about.component';
 
 import { CarModule } from './cars/cars.module';
 
@@ -12,7 +12,7 @@ import { Routing } from './app.routing';
 
 @NgModule({
     imports: [BrowserModule, Routing, CarModule],
-    declarations: [AppComponent, AboutComponent],
+    declarations: [AppComponent],
     bootstrap: [AppComponent]
 })
 

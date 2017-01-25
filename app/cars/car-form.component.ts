@@ -2,8 +2,9 @@ import {Component} from '@angular/core';
 import {Car} from './car';
 
 @Component({
+    moduleId: module.id,
     selector: 'car-form',
-    templateUrl: 'app/car-form.component.html'
+    templateUrl: 'car-form.component.html'
 })
 
 export class CarFormComponent {
@@ -25,7 +26,7 @@ export class CarFormComponent {
         'Wagons'
     ];
     model = new Car(
-        1, 
+        '1', 
         'BMW', 
         'X5', 
         this.fuelTypes[1], 
