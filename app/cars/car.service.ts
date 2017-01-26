@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 
 import { Car } from './car';
-//import { CARS } from './mock-cars';
 
 @Injectable()
 export class CarService {
