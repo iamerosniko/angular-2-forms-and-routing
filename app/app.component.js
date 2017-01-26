@@ -14,12 +14,12 @@ var AppComponent = (function () {
     }
     AppComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'my-app',
-            template: "\n        <div class=\"panel panel-default\">\n            <div class=\"panel-heading\">\n                <h3 class=\"panel-title\">Routing and Navigation</h3>\n            </div>\n            <div class=\"panel-body\">\n                <ul class=\"nav nav-tabs\">\n                    <li role=\"presentation\"><a routerLink=\"/cars\">Cars List</a></li>\n                    <li role=\"presentation\"><a routerLink=\"/car/create\">New Car</a></li>\n                    <li role=\"presentation\"><a routerLink=\"/about\">About</a></li>\n                </ul>\n                <router-outlet></router-outlet>\n            </div>\n        </div>\n    "
+            templateUrl: 'app.component.html'
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
 }());
 exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map

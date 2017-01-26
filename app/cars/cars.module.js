@@ -40,4 +40,3 @@ var CarModule = (function () {
     return CarModule;
 }());
 exports.CarModule = CarModule;
-//# sourceMappingURL=cars.module.js.map

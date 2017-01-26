@@ -30,4 +30,3 @@ var CarsListComponent = (function () {
     return CarsListComponent;
 }());
 exports.CarsListComponent = CarsListComponent;
-//# sourceMappingURL=cars-list.component.js.map
