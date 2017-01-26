@@ -9,23 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-//import { ModuleWithProviders } from '@angular/core';
 var router_1 = require('@angular/router');
-//import { AboutComponent } from './about.component';
+var about_component_1 = require('./about.component');
 var appRoutes = [
-    { path: '', redirectTo: '/cars', pathMatch: 'full' }
+    { path: 'about', component: about_component_1.AboutComponent }
 ];
-//export const carsRouting: ModuleWithProviders = RouterModule.forChild(carsRoutes);
-var Routing = (function () {
-    function Routing() {
+var AppRouting = (function () {
+    function AppRouting() {
     }
-    Routing = __decorate([
+    AppRouting = __decorate([
         core_1.NgModule({
             imports: [router_1.RouterModule.forRoot(appRoutes)],
             exports: [router_1.RouterModule]
         }), 
         __metadata('design:paramtypes', [])
-    ], Routing);
-    return Routing;
+    ], AppRouting);
+    return AppRouting;
 }());
-exports.Routing = Routing;
+exports.AppRouting = AppRouting;
