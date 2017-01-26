@@ -9,22 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var app_component_1 = require('./app.component');
-var about_component_1 = require('./about.component');
-var cars_module_1 = require('./cars/cars.module');
-var app_routing_1 = require('./app.routing');
-var AppModule = (function () {
-    function AppModule() {
+var router_1 = require('@angular/router');
+var car_detail_component_1 = require('./car-detail.component');
+//import { CarFormComponent } from './car-form.component';
+var cars_list_component_1 = require('./cars-list.component');
+var carsRoutes = [
+    { path: 'cars', component: cars_list_component_1.CarsListComponent },
+    // {path: 'car/create', component: CarFormComponent}
+    { path: 'car/:id', component: car_detail_component_1.CarDetailComponent }
+];
+var CarsRouting = (function () {
+    function CarsRouting() {
     }
-    AppModule = __decorate([
+    CarsRouting = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, cars_module_1.CarModule, app_routing_1.AppRouting],
-            declarations: [app_component_1.AppComponent, about_component_1.AboutComponent],
-            bootstrap: [app_component_1.AppComponent]
+            imports: [router_1.RouterModule.forChild(carsRoutes)],
+            exports: [router_1.RouterModule]
         }), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], CarsRouting);
+    return CarsRouting;
 }());
-exports.AppModule = AppModule;
+exports.CarsRouting = CarsRouting;

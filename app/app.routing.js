@@ -12,14 +12,15 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var about_component_1 = require('./about.component');
 var appRoutes = [
-    { path: 'about', component: about_component_1.AboutComponent }
+    { path: 'about', component: about_component_1.AboutComponent },
+    { path: '', redirectTo: '/cars', pathMatch: 'full' }
 ];
 var AppRouting = (function () {
     function AppRouting() {
     }
     AppRouting = __decorate([
         core_1.NgModule({
-            imports: [router_1.RouterModule.forRoot(appRoutes)],
+            imports: [router_1.RouterModule.forRoot(appRoutes, { useHash: true })],
             exports: [router_1.RouterModule]
         }), 
         __metadata('design:paramtypes', [])

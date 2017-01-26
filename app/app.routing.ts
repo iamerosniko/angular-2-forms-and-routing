@@ -4,12 +4,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './about.component';
 
 const appRoutes: Routes = [
-    { path: 'about', component: AboutComponent}
-    //{ path: '', redirectTo: '/cars', pathMatch: 'full' }
+    { path: 'about', component: AboutComponent},
+    { path: '', redirectTo: '/cars', pathMatch: 'full' }
 ];
 
 @NgModule ({
-    imports: [ RouterModule.forRoot(appRoutes) ],
+    imports: [ RouterModule.forRoot(appRoutes, {useHash: true}) ],
     exports: [ RouterModule ]
 })
 
