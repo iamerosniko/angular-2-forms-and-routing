@@ -8,20 +8,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+require('rxjs/add/operator/toPromise');
 var core_1 = require('@angular/core');
-var mock_cars_1 = require('./mock-cars');
+var http_1 = require('@angular/http');
+//import { CARS } from './mock-cars';
 var CarService = (function () {
-    function CarService() {
+    function CarService(http) {
+        this.http = http;
+        this.carsUrl = 'api/cars'; // URL to web api
     }
     CarService.prototype.getCars = function () {
-        return Promise.resolve(mock_cars_1.CARS);
+        return this.http.get(this.carsUrl)
+            .toPromise()
+            .then(function (response) { return response.json().data; })
+            .catch(this.handleError);
     };
     CarService.prototype.getCar = function (id) {
-        return this.getCars().then(function (cars) { return cars.find(function (car) { return car.id === id; }); });
+        var url = this.carsUrl + "/" + id;
+        return this.http.get(url)
+            .toPromise()
+            .then(function (response) { return response.json().data; })
+            .catch(this.handleError);
+    };
+    CarService.prototype.handleError = function (error) {
+        console.error('An error occurred', error); // for demo purposes only
+        return Promise.reject(error.message || error);
     };
     CarService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http])
     ], CarService);
     return CarService;
 }());
