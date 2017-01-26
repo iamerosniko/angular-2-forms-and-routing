@@ -28,7 +28,8 @@ var CarsListComponent = (function () {
     };
     CarsListComponent = __decorate([
         core_1.Component({
-            template: "\n        <h3>Car List Component</h3>\n        <table class=\"table table-hover\">\n            <thead>\n                <tr>\n                    <th>ID</th>\n                    <th>Brand</th>\n                    <th>Model</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let car of cars\" (click)=\"onSelect(car)\">\n                    <td>{{car.id}}</td>\n                    <td>{{car.brand}}</td>\n                    <td>{{car.model}}</td>\n                </tr>\n            </tbody>\n        </table>\n    "
+            moduleId: module.id,
+            templateUrl: 'cars-list.component.html'
         }), 
         __metadata('design:paramtypes', [router_1.Router, car_service_1.CarService])
     ], CarsListComponent);
