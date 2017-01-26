@@ -9,20 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var mock_cars_1 = require('./mock-cars');
-var CarService = (function () {
-    function CarService() {
+var AppComponent = (function () {
+    function AppComponent() {
     }
-    CarService.prototype.getCars = function () {
-        return Promise.resolve(mock_cars_1.CARS);
-    };
-    CarService.prototype.getCar = function (id) {
-        return this.getCars().then(function (cars) { return cars.find(function (car) { return car.id === id; }); });
-    };
-    CarService = __decorate([
-        core_1.Injectable(), 
+    AppComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'my-app',
+            templateUrl: 'app.component.html'
+        }), 
         __metadata('design:paramtypes', [])
-    ], CarService);
-    return CarService;
+    ], AppComponent);
+    return AppComponent;
 }());
-exports.CarService = CarService;
+exports.AppComponent = AppComponent;

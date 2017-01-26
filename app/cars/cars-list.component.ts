@@ -16,7 +16,7 @@ import { CarService } from './car.service'
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let car of cars" (click)="onSelect()">
+                <tr *ngFor="let car of cars" (click)="onSelect(car)">
                     <td>{{car.id}}</td>
                     <td>{{car.brand}}</td>
                     <td>{{car.model}}</td>
@@ -30,6 +30,7 @@ export class CarsListComponent {
     cars: Car[];
 
     constructor(
+        private router: Router,
         private carService: CarService
     ) {}
 
@@ -39,5 +40,9 @@ export class CarsListComponent {
 
     ngOnInit(): void {
         this.getCars();
+    }
+
+    onSelect(car: Car) {
+        this.router.navigate(['/car', car.id]);
     }
 }

@@ -26,7 +26,7 @@ export class CarFormComponent {
         'Wagons'
     ];
     model = new Car(
-        '1', 
+        1, 
         'BMW', 
         'X5', 
         this.fuelTypes[1], 

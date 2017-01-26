@@ -8,4 +8,12 @@ export class CarService {
     getCars(): Promise<Car[]> {
         return Promise.resolve(CARS);
     }
+
+    getCar(id: number): Promise<Car> {
+        return this.getCars().then(
+            cars => cars.find(
+                car => car.id === id
+            )
+        );
+    }
 }

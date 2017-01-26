@@ -11,25 +11,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 //import { ModuleWithProviders } from '@angular/core';
 var router_1 = require('@angular/router');
-var car_detail_component_1 = require('./car-detail.component');
-//import { CarFormComponent } from './car-form.component';
-var cars_list_component_1 = require('./cars-list.component');
-var carsRoutes = [
-    { path: 'cars', component: cars_list_component_1.CarsListComponent },
-    // {path: 'car/create', component: CarFormComponent}
-    { path: 'car/:id', component: car_detail_component_1.CarDetailComponent }
+//import { AboutComponent } from './about.component';
+var appRoutes = [
+    { path: '', redirectTo: '/cars', pathMatch: 'full' }
 ];
 //export const carsRouting: ModuleWithProviders = RouterModule.forChild(carsRoutes);
-var CarsRouting = (function () {
-    function CarsRouting() {
+var Routing = (function () {
+    function Routing() {
     }
-    CarsRouting = __decorate([
+    Routing = __decorate([
         core_1.NgModule({
-            imports: [router_1.RouterModule.forChild(carsRoutes)],
+            imports: [router_1.RouterModule.forRoot(appRoutes)],
             exports: [router_1.RouterModule]
         }), 
         __metadata('design:paramtypes', [])
-    ], CarsRouting);
-    return CarsRouting;
+    ], Routing);
+    return Routing;
 }());
-exports.CarsRouting = CarsRouting;
+exports.Routing = Routing;
