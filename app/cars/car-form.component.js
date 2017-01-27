@@ -9,11 +9,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var car_1 = require('./car');
 var car_service_1 = require('./car.service');
 var CarFormComponent = (function () {
-    function CarFormComponent(carService) {
+    function CarFormComponent(carService, router) {
         this.carService = carService;
+        this.router = router;
         this.submitted = false;
         this.fuelTypes = [
             'Petrol',
@@ -34,8 +36,13 @@ var CarFormComponent = (function () {
         this.model = new car_1.Car(0, '', '');
     }
     CarFormComponent.prototype.onSubmit = function () {
+        var _this = this;
         this.submitted = true;
-        // carService.addCar(this.model);
+        this.model.id = 5;
+        this.carService.postCar(this.model);
+        setTimeout(function () {
+            _this.router.navigate(['/cars']);
+        }, 2000);
     };
     Object.defineProperty(CarFormComponent.prototype, "diagnostic", {
         get: function () {
@@ -50,7 +57,7 @@ var CarFormComponent = (function () {
             selector: 'car-form',
             templateUrl: 'car-form.component.html'
         }), 
-        __metadata('design:paramtypes', [car_service_1.CarService])
+        __metadata('design:paramtypes', [car_service_1.CarService, router_1.Router])
     ], CarFormComponent);
     return CarFormComponent;
 }());

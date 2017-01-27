@@ -6,6 +6,7 @@ import { Car } from './car';
 
 @Injectable()
 export class CarService {
+    private headers = new Headers({'Content-Type': 'application/json'});
     private carsUrl = 'api/cars';  // URL to web api
 
     constructor(private http: Http){}
@@ -23,6 +24,14 @@ export class CarService {
                 .toPromise()
                 .then(response => response.json().data as Car)
                 .catch(this.handleError);
+    }
+
+    postCar(newCar: Car): Promise<Car> {
+        return this.http
+            .post(this.carsUrl, JSON.stringify(newCar), {headers: this.headers})
+            .toPromise()
+            .then(res => res.json().data)
+            .catch(this.handleError);
     }
 
     private handleError(error: any): Promise<any> {

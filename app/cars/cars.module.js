@@ -16,7 +16,7 @@ var http_1 = require('@angular/http');
 var angular_in_memory_web_api_1 = require('angular-in-memory-web-api');
 var in_memory_data_service_1 = require('./in-memory-data.service');
 var car_detail_component_1 = require('./car-detail.component');
-//import { CarFormComponent } from './car-form.component';
+var car_form_component_1 = require('./car-form.component');
 var cars_list_component_1 = require('./cars-list.component');
 var car_service_1 = require('./car.service');
 var cars_routing_1 = require('./cars.routing');
@@ -34,6 +34,7 @@ var CarModule = (function () {
             ],
             declarations: [
                 car_detail_component_1.CarDetailComponent,
+                car_form_component_1.CarFormComponent,
                 cars_list_component_1.CarsListComponent
             ],
             providers: [

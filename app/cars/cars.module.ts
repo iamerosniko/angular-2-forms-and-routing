@@ -8,7 +8,7 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 
 import { CarDetailComponent } from './car-detail.component';
-//import { CarFormComponent } from './car-form.component';
+import { CarFormComponent } from './car-form.component';
 import { CarsListComponent } from './cars-list.component';
 
 import { CarService } from './car.service';
@@ -25,6 +25,7 @@ import { CarsRouting } from './cars.routing';
     ],
     declarations: [
         CarDetailComponent,
+        CarFormComponent,
         CarsListComponent
     ],
     providers: [

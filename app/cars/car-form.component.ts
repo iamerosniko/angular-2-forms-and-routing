@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router'
 
 import { Car } from './car';
 import { CarService } from './car.service';
@@ -30,12 +31,21 @@ export class CarFormComponent {
     model = new Car(0, '', '');
 
     constructor(
-        private carService: CarService
+        private carService: CarService,
+        private router: Router
     ){}
 
     onSubmit() {
         this.submitted = true;
-       // carService.addCar(this.model);
+        this.model.id = 5;
+        this.carService.postCar(this.model);
+
+        setTimeout(
+            () => {
+                this.router.navigate(['/cars'])
+            }, 
+            2000
+        );
     }
 
     get diagnostic() {

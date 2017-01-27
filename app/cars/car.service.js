@@ -11,10 +11,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 require('rxjs/add/operator/toPromise');
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
-//import { CARS } from './mock-cars';
 var CarService = (function () {
     function CarService(http) {
         this.http = http;
+        this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         this.carsUrl = 'api/cars'; // URL to web api
     }
     CarService.prototype.getCars = function () {
@@ -28,6 +28,13 @@ var CarService = (function () {
         return this.http.get(url)
             .toPromise()
             .then(function (response) { return response.json().data; })
+            .catch(this.handleError);
+    };
+    CarService.prototype.postCar = function (newCar) {
+        return this.http
+            .post(this.carsUrl, JSON.stringify(newCar), { headers: this.headers })
+            .toPromise()
+            .then(function (res) { return res.json().data; })
             .catch(this.handleError);
     };
     CarService.prototype.handleError = function (error) {
