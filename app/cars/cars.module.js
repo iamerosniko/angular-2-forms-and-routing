@@ -18,6 +18,7 @@ var in_memory_data_service_1 = require('./in-memory-data.service');
 var car_detail_component_1 = require('./car-detail.component');
 var car_form_component_1 = require('./car-form.component');
 var cars_list_component_1 = require('./cars-list.component');
+var car_edit_component_1 = require('./car-edit.component');
 var car_service_1 = require('./car.service');
 var cars_routing_1 = require('./cars.routing');
 var CarModule = (function () {
@@ -35,7 +36,8 @@ var CarModule = (function () {
             declarations: [
                 car_detail_component_1.CarDetailComponent,
                 car_form_component_1.CarFormComponent,
-                cars_list_component_1.CarsListComponent
+                cars_list_component_1.CarsListComponent,
+                car_edit_component_1.CarEditComponent
             ],
             providers: [
                 car_service_1.CarService

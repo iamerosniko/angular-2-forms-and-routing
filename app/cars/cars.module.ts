@@ -10,6 +10,7 @@ import { InMemoryDataService }  from './in-memory-data.service';
 import { CarDetailComponent } from './car-detail.component';
 import { CarFormComponent } from './car-form.component';
 import { CarsListComponent } from './cars-list.component';
+import { CarEditComponent } from './car-edit.component';
 
 import { CarService } from './car.service';
 
@@ -26,7 +27,8 @@ import { CarsRouting } from './cars.routing';
     declarations: [
         CarDetailComponent,
         CarFormComponent,
-        CarsListComponent
+        CarsListComponent,
+        CarEditComponent
     ],
     providers: [
         CarService

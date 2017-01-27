@@ -10,14 +10,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var car_1 = require('./car');
 var car_service_1 = require('./car.service');
-var CarFormComponent = (function () {
-    function CarFormComponent(carService, router) {
+var CarEditComponent = (function () {
+    function CarEditComponent(carService, router) {
         this.carService = carService;
         this.router = router;
         this.submitted = false;
-        this.carsCount = 0;
         this.fuelTypes = [
             'Petrol',
             'Diesel',
@@ -34,38 +32,16 @@ var CarFormComponent = (function () {
             'Trucks',
             'Wagons'
         ];
-        this.model = new car_1.Car(0, '', '');
     }
-    CarFormComponent.prototype.getAllCar = function () {
-        var _this = this;
-        this.carService.getCars().then(function (cars) { return _this.cars = cars; });
+    CarEditComponent.prototype.ngOnInit = function () {
     };
-    CarFormComponent.prototype.ngOnInit = function () {
-        this.getAllCar();
-    };
-    CarFormComponent.prototype.onSubmit = function () {
-        var _this = this;
-        this.model.id = this.cars.length + 1;
-        this.submitted = true;
-        this.carService.postCar(this.model);
-        setTimeout(function () {
-            _this.router.navigate(['/cars']);
-        }, 2000);
-    };
-    Object.defineProperty(CarFormComponent.prototype, "diagnostic", {
-        get: function () {
-            return JSON.stringify(this.model);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    CarFormComponent = __decorate([
+    CarEditComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             templateUrl: 'car-form.component.html'
         }), 
         __metadata('design:paramtypes', [car_service_1.CarService, router_1.Router])
-    ], CarFormComponent);
-    return CarFormComponent;
+    ], CarEditComponent);
+    return CarEditComponent;
 }());
-exports.CarFormComponent = CarFormComponent;
+exports.CarEditComponent = CarEditComponent;

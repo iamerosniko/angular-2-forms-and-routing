@@ -20,7 +20,8 @@ export class CarService {
     }
 
     getCars(): Promise<Car[]> {
-        return this.http.get(this.carsUrl)
+        return this.http
+                .get(this.carsUrl)
                 .toPromise()
                 .then(response => response.json().data as Car[])
                 .catch(this.handleError);
@@ -28,14 +29,27 @@ export class CarService {
 
     getCar(id: number): Promise<Car> {
         const url = `${this.carsUrl}/${id}`;
-        return this.http.get(url)
+
+        return this.http
+                .get(url)
                 .toPromise()
                 .then(response => response.json().data as Car)
                 .catch(this.handleError);
     }
 
+    putCar(car: Car): Promise<Car> {
+        const url = `${this.carsUrl}/${car.id}`;
+
+        return this.http
+                .put(url, JSON.stringify(car), {headers: this.headers})
+                .toPromise()
+                .then(() => car)
+                .catch(this.handleError);
+    }
+
     deleteCar(id: number): Promise<void> {
         const url = `${this.carsUrl}/${id}`;
+
         return this.http.delete(url, {headers: this.headers})
                 .toPromise()
                 .then(() => null)

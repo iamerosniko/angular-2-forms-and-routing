@@ -25,16 +25,26 @@ var CarService = (function () {
             .catch(this.handleError);
     };
     CarService.prototype.getCars = function () {
-        return this.http.get(this.carsUrl)
+        return this.http
+            .get(this.carsUrl)
             .toPromise()
             .then(function (response) { return response.json().data; })
             .catch(this.handleError);
     };
     CarService.prototype.getCar = function (id) {
         var url = this.carsUrl + "/" + id;
-        return this.http.get(url)
+        return this.http
+            .get(url)
             .toPromise()
             .then(function (response) { return response.json().data; })
+            .catch(this.handleError);
+    };
+    CarService.prototype.putCar = function (car) {
+        var url = this.carsUrl + "/" + car.id;
+        return this.http
+            .put(url, JSON.stringify(car), { headers: this.headers })
+            .toPromise()
+            .then(function () { return car; })
             .catch(this.handleError);
     };
     CarService.prototype.deleteCar = function (id) {

@@ -9,10 +9,8 @@ import { CarService } from './car.service';
     templateUrl: 'car-form.component.html'
 })
 
-export class CarFormComponent implements OnInit{
+export class CarEditComponent implements OnInit{
     submitted = false;
-    cars: Car[];
-    carsCount = 0;
     fuelTypes = [
         'Petrol',
         'Diesel',
@@ -29,35 +27,13 @@ export class CarFormComponent implements OnInit{
         'Trucks',
         'Wagons'
     ];
-    model = new Car(0, '', '');
 
     constructor(
         private carService: CarService,
         private router: Router
     ){}
 
-    getAllCar(): void {
-        this.carService.getCars().then(cars => this.cars = cars);
-    }
-
     ngOnInit(): void {
-        this.getAllCar();
-    }
-
-    onSubmit(): void {
-        this.model.id = this.cars.length + 1;
-        this.submitted = true;
-        this.carService.postCar(this.model);
-
-        setTimeout(
-            () => {
-                this.router.navigate(['/cars'])
-            }, 
-            2000
-        );
-    }
-
-    get diagnostic() {
-        return JSON.stringify(this.model);
+        
     }
 }

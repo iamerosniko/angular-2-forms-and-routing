@@ -43,4 +43,6 @@
     <button class="btn btn-danger btn-sm" (click)="onDeleteCar(currentCar.id); $event.stopPropagation()">
         Delete
     </button>
+    <br />
+    <a class="btn btn-primary btn-sm" routerLink="/caredit/{{currentCar.id}}">Edit</a>
 </div>
