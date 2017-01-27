@@ -17,6 +17,7 @@ var CarFormComponent = (function () {
         this.carService = carService;
         this.router = router;
         this.submitted = false;
+        this.carsCount = 0;
         this.fuelTypes = [
             'Petrol',
             'Diesel',
@@ -35,10 +36,17 @@ var CarFormComponent = (function () {
         ];
         this.model = new car_1.Car(0, '', '');
     }
+    CarFormComponent.prototype.getAllCar = function () {
+        var _this = this;
+        this.carService.getCars().then(function (cars) { return _this.cars = cars; });
+    };
+    CarFormComponent.prototype.ngOnInit = function () {
+        this.getAllCar();
+    };
     CarFormComponent.prototype.onSubmit = function () {
         var _this = this;
+        this.model.id = this.cars.length + 1;
         this.submitted = true;
-        this.model.id = 5;
         this.carService.postCar(this.model);
         setTimeout(function () {
             _this.router.navigate(['/cars']);

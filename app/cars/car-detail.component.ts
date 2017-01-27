@@ -1,6 +1,6 @@
 import 'rxjs/add/operator/switchMap';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute,  Params } from '@angular/router';
+import { ActivatedRoute,  Params, Router } from '@angular/router';
 
 import { Car } from './car';
 import { CarService } from './car.service';
@@ -10,18 +10,23 @@ import { CarService } from './car.service';
     templateUrl: 'car-detail.component.html'
 })
 
-export class CarDetailComponent {
+export class CarDetailComponent implements OnInit{
     currentCar: Car;
 
     constructor(
         private carService: CarService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private router: Router
     ) {}
 
-    ngOnInit() {
+    ngOnInit(): void {
         this.route.params
             .switchMap((params: Params) => this.carService.getCar(+params['id'])) //the + value will convert id to number type
             .subscribe(car => this.currentCar = car);
     }
 
+    onDeleteCar(id: number): void{
+        this.carService.deleteCar(id);
+        this.router.navigate(['/cars'])
+    }
 }

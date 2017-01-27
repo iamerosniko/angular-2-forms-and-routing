@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 
 import { Car } from './car';
@@ -10,8 +10,10 @@ import { CarService } from './car.service';
     templateUrl: 'car-form.component.html'
 })
 
-export class CarFormComponent {
+export class CarFormComponent implements OnInit{
     submitted = false;
+    cars: Car[];
+    carsCount = 0;
     fuelTypes = [
         'Petrol',
         'Diesel',
@@ -35,9 +37,17 @@ export class CarFormComponent {
         private router: Router
     ){}
 
-    onSubmit() {
+    getAllCar(): void {
+        this.carService.getCars().then(cars => this.cars = cars);
+    }
+
+    ngOnInit(): void {
+        this.getAllCar();
+    }
+
+    onSubmit(): void {
+        this.model.id = this.cars.length + 1;
         this.submitted = true;
-        this.model.id = 5;
         this.carService.postCar(this.model);
 
         setTimeout(

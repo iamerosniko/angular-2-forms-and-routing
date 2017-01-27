@@ -17,6 +17,13 @@ var CarService = (function () {
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         this.carsUrl = 'api/cars'; // URL to web api
     }
+    CarService.prototype.postCar = function (newCar) {
+        return this.http
+            .post(this.carsUrl, JSON.stringify(newCar), { headers: this.headers })
+            .toPromise()
+            .then(function (res) { return res.json().data; })
+            .catch(this.handleError);
+    };
     CarService.prototype.getCars = function () {
         return this.http.get(this.carsUrl)
             .toPromise()
@@ -30,11 +37,11 @@ var CarService = (function () {
             .then(function (response) { return response.json().data; })
             .catch(this.handleError);
     };
-    CarService.prototype.postCar = function (newCar) {
-        return this.http
-            .post(this.carsUrl, JSON.stringify(newCar), { headers: this.headers })
+    CarService.prototype.deleteCar = function (id) {
+        var url = this.carsUrl + "/" + id;
+        return this.http.delete(url, { headers: this.headers })
             .toPromise()
-            .then(function (res) { return res.json().data; })
+            .then(function () { return null; })
             .catch(this.handleError);
     };
     CarService.prototype.handleError = function (error) {

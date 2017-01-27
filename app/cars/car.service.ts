@@ -11,6 +11,14 @@ export class CarService {
 
     constructor(private http: Http){}
 
+    postCar(newCar: Car): Promise<Car> {
+        return this.http
+            .post(this.carsUrl, JSON.stringify(newCar), {headers: this.headers})
+            .toPromise()
+            .then(res => res.json().data)
+            .catch(this.handleError);
+    }
+
     getCars(): Promise<Car[]> {
         return this.http.get(this.carsUrl)
                 .toPromise()
@@ -26,12 +34,12 @@ export class CarService {
                 .catch(this.handleError);
     }
 
-    postCar(newCar: Car): Promise<Car> {
-        return this.http
-            .post(this.carsUrl, JSON.stringify(newCar), {headers: this.headers})
-            .toPromise()
-            .then(res => res.json().data)
-            .catch(this.handleError);
+    deleteCar(id: number): Promise<void> {
+        const url = `${this.carsUrl}/${id}`;
+        return this.http.delete(url, {headers: this.headers})
+                .toPromise()
+                .then(() => null)
+                .catch(this.handleError);
     }
 
     private handleError(error: any): Promise<any> {

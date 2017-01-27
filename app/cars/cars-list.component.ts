@@ -9,7 +9,7 @@ import { CarService } from './car.service'
     templateUrl: 'cars-list.component.html'
 })
 
-export class CarsListComponent {
+export class CarsListComponent implements OnInit{
     cars: Car[];
 
     constructor(
