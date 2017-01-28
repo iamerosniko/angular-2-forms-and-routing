@@ -1,5 +1,6 @@
+import 'rxjs/add/operator/switchMap';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'
+import { ActivatedRoute,  Params, Router } from '@angular/router';
 
 import { Car } from './car';
 import { CarService } from './car.service';
@@ -10,12 +11,13 @@ import { CarService } from './car.service';
 })
 
 export class CarEditComponent implements OnInit{
+    currentCar: Car;
     submitted = false;
     fuelTypes = [
         'Petrol',
         'Diesel',
         'Hybrid',
-        'Electric'
+        'Electric' 
     ];
     bodyStyle = [
         'Convertibles',
@@ -30,10 +32,13 @@ export class CarEditComponent implements OnInit{
 
     constructor(
         private carService: CarService,
+        private route: ActivatedRoute,
         private router: Router
     ){}
 
     ngOnInit(): void {
-        
+        this.route.params
+            .switchMap((params: Params) => this.carService.getCar(+params['id'])) //the + value will convert id to number type
+            .subscribe(car => this.currentCar = car);
     }
 }
