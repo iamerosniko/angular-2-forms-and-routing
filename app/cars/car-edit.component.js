@@ -43,6 +43,14 @@ var CarEditComponent = (function () {
             .switchMap(function (params) { return _this.carService.getCar(+params['id']); }) //the + value will convert id to number type
             .subscribe(function (car) { return _this.model = car; });
     };
+    CarEditComponent.prototype.onSubmit = function () {
+        var _this = this;
+        this.submitted = true;
+        this.carService.putCar(this.model);
+        setTimeout(function () {
+            _this.router.navigate(['/cars']);
+        }, 2000);
+    };
     CarEditComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

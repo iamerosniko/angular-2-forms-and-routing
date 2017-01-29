@@ -41,4 +41,16 @@ export class CarEditComponent implements OnInit{
             .switchMap((params: Params) => this.carService.getCar(+params['id'])) //the + value will convert id to number type
             .subscribe(car => this.model = car);
     }
+
+    onSubmit(): void {
+        this.submitted = true;
+        this.carService.putCar(this.model);
+
+        setTimeout(
+            () => {
+                this.router.navigate(['/cars'])
+            }, 
+            2000
+        );
+    }
 }
