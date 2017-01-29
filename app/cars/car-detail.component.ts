@@ -8,7 +8,7 @@ import { CarService } from './car.service';
 @Component({
     moduleId: module.id,
     templateUrl: 'car-detail.component.html'
-})
+}) 
 
 export class CarDetailComponent implements OnInit{
     currentCar: Car;

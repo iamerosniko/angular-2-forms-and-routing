@@ -11,7 +11,7 @@ import { CarService } from './car.service';
 })
 
 export class CarEditComponent implements OnInit{
-    currentCar: Car;
+    model = new Car(0, '', '');
     submitted = false;
     fuelTypes = [
         'Petrol',
@@ -39,6 +39,6 @@ export class CarEditComponent implements OnInit{
     ngOnInit(): void {
         this.route.params
             .switchMap((params: Params) => this.carService.getCar(+params['id'])) //the + value will convert id to number type
-            .subscribe(car => this.currentCar = car);
+            .subscribe(car => this.model = car);
     }
 }

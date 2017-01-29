@@ -8,13 +8,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+require('rxjs/add/operator/switchMap');
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var car_1 = require('./car');
 var car_service_1 = require('./car.service');
 var CarEditComponent = (function () {
-    function CarEditComponent(carService, router) {
+    function CarEditComponent(carService, route, router) {
         this.carService = carService;
+        this.route = route;
         this.router = router;
+        this.model = new car_1.Car(0, '', '');
         this.submitted = false;
         this.fuelTypes = [
             'Petrol',
@@ -34,13 +38,17 @@ var CarEditComponent = (function () {
         ];
     }
     CarEditComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.params
+            .switchMap(function (params) { return _this.carService.getCar(+params['id']); }) //the + value will convert id to number type
+            .subscribe(function (car) { return _this.model = car; });
     };
     CarEditComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             templateUrl: 'car-form.component.html'
         }), 
-        __metadata('design:paramtypes', [car_service_1.CarService, router_1.Router])
+        __metadata('design:paramtypes', [car_service_1.CarService, router_1.ActivatedRoute, router_1.Router])
     ], CarEditComponent);
     return CarEditComponent;
 }());
