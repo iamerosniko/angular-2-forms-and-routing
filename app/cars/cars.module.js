@@ -20,6 +20,7 @@ var car_form_component_1 = require('./car-form.component');
 var cars_list_component_1 = require('./cars-list.component');
 var car_edit_component_1 = require('./car-edit.component');
 var car_service_1 = require('./car.service');
+//import { CarService } from './carP.service'
 var cars_routing_1 = require('./cars.routing');
 var CarModule = (function () {
     function CarModule() {

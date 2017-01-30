@@ -1,13 +1,19 @@
 import 'rxjs/add/operator/toPromise';
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Headers, Http , Response} from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
+
 
 import { Car } from './car';
 
 @Injectable()
 export class CarService {
     private headers = new Headers({'Content-Type': 'application/json'});
-    private carsUrl = 'api/cars';  // URL to web api
+    //private carsUrl = 'api/cars.json';;  // URL to web api
+    private carsUrl = 'http://localhost:59916/api/ng2_cars';;  // URL to web api
 
     constructor(private http: Http){}
 
@@ -19,13 +25,28 @@ export class CarService {
             .catch(this.handleError);
     }
 
-    getCars(): Promise<Car[]> {
+    // getCars(): Promise<Car[]> {
+    //     return this.http
+    //             .get(this.carsUrl, {headers: this.headers})
+    //             .toPromise()
+    //             .then(response => response.json().data as Car[])
+    //             .catch(this.handleError);
+    // }
+
+    getCars (): Observable<Car[]> {
         return this.http
                 .get(this.carsUrl)
-                .toPromise()
-                .then(response => response.json().data as Car[])
+                .map(res => <Car[]>res.json())
                 .catch(this.handleError);
     }
+
+    private extractData(res: Response) {
+        let body = res.json();
+        //body = Array.of(body);
+        //return body.data;
+        return body.data || { };
+    }
+
 
     getCar(id: number): Promise<Car> {
         const url = `${this.carsUrl}/${id}`;
