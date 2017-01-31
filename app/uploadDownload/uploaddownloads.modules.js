@@ -9,23 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var app_component_1 = require('./app.component');
-var about_component_1 = require('./about.component');
-var cars_module_1 = require('./cars/cars.module');
-//import { UploadDownloadModule } from './uploadDownload/uploaddownloads.module';
-var app_routing_1 = require('./app.routing');
-var AppModule = (function () {
-    function AppModule() {
+var common_1 = require('@angular/common');
+var UploadDownloadModule = (function () {
+    function UploadDownloadModule() {
     }
-    AppModule = __decorate([
+    UploadDownloadModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, cars_module_1.CarModule, app_routing_1.AppRouting],
-            declarations: [app_component_1.AppComponent, about_component_1.AboutComponent],
-            bootstrap: [app_component_1.AppComponent]
+            imports: [
+                common_1.CommonModule,
+            ],
+            declarations: [],
+            providers: []
         }), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], UploadDownloadModule);
+    return UploadDownloadModule;
 }());
-exports.AppModule = AppModule;
+exports.UploadDownloadModule = UploadDownloadModule;

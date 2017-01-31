@@ -13,7 +13,8 @@ var router_1 = require('@angular/router');
 var about_component_1 = require('./about.component');
 var appRoutes = [
     { path: 'about', component: about_component_1.AboutComponent },
-    { path: '', redirectTo: '/cars', pathMatch: 'full' }
+    { path: '', redirectTo: '/cars', pathMatch: 'full' },
+    { path: 'uploadDownload', redirectTo: '/uploadDownload', pathMatch: 'full' }
 ];
 var AppRouting = (function () {
     function AppRouting() {

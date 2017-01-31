@@ -5,13 +5,13 @@ import { AppComponent } from './app.component';
 import { AboutComponent } from './about.component';
 
 import { CarModule } from './cars/cars.module';
-import { UploadDownloadModule } from './uploadDownload/uploadDownload.module';
+//import { UploadDownloadModule } from './uploadDownload/uploaddownloads.module';
 
 import { AppRouting } from './app.routing';
 
 
 @NgModule({
-    imports: [BrowserModule, CarModule, AppRouting],
+    imports: [BrowserModule, CarModule,  AppRouting],
     declarations: [AppComponent, AboutComponent],
     bootstrap: [AppComponent]
 })

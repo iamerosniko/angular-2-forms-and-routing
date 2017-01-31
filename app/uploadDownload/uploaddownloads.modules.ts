@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'
 
 import { UploaddownloadFormComponent } from './uploaddownload-form.component';
 
@@ -8,7 +9,7 @@ import { UploaddownloadFormComponent } from './uploaddownload-form.component';
         CommonModule,
     ],
     declarations: [
-        UploaddownloadFormComponent
+        //UploaddownloadFormComponent
     ],
     providers: [
     ]
