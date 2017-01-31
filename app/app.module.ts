@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { AboutComponent } from './about.component';
 
 import { CarModule } from './cars/cars.module';
+import { UploadDownloadModule } from './uploadDownload/uploadDownload.module';
 
 import { AppRouting } from './app.routing';
 
