@@ -8,11 +8,12 @@ import { FileRouting } from './file.routing';
 
 @NgModule({
     imports: [
+        BrowserModule,
         CommonModule,
         FileRouting
     ],
-    declarations: [
-       UploadComponent, FileSelectDirective , FileDropDirective
+    declarations: [FileSelectDirective , FileDropDirective,
+       UploadComponent
     ],
     bootstrap: [UploadComponent]
 })
