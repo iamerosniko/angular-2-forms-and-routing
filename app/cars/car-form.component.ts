@@ -11,9 +11,7 @@ import { CarService } from './car.service';
 
 export class CarFormComponent implements OnInit{
     submitted = false;
-    errorMessage: string;
     cars: Car[];
-    mode = 'Observable';
     carsCount = 0;
     fuelTypes = [
         'Petrol',
@@ -38,17 +36,8 @@ export class CarFormComponent implements OnInit{
         private router: Router
     ){}
 
-    // getAllCar(): void {
-    //     this.carService.getCars().then(cars => this.cars = cars);
-    // }
-
     getAllCar(): void {
-        this.carService
-            .getCars()
-            .subscribe(
-                cars => this.cars = cars,
-            error => this.errorMessage = <any>error
-            );
+        this.carService.getCars().then(cars => this.cars = cars);
     }
 
     ngOnInit(): void {

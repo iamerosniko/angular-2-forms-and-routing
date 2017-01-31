@@ -1,19 +1,14 @@
 import 'rxjs/add/operator/toPromise';
 import { Injectable } from '@angular/core';
-import { Headers, Http , Response} from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
-
+import { Headers, Http } from '@angular/http';
 
 import { Car } from './car';
 
 @Injectable()
 export class CarService {
     private headers = new Headers({'Content-Type': 'application/json'});
-    //private carsUrl = 'api/cars.json';;  // URL to web api
-    private carsUrl = 'http://localhost:59916/api/ng2_cars';;  // URL to web api
+    //private carsUrl = 'api/cars';  // testing
+    private carsUrl = 'http://localhost:59916/api/ng2_cars';;  // live
 
     constructor(private http: Http){}
 
@@ -21,32 +16,19 @@ export class CarService {
         return this.http
             .post(this.carsUrl, JSON.stringify(newCar), {headers: this.headers})
             .toPromise()
-            .then(res => res.json().data)
+            //.then(res => res.json().data)  // testing
+            .then(res => res.json())  // live
             .catch(this.handleError);
     }
 
-    // getCars(): Promise<Car[]> {
-    //     return this.http
-    //             .get(this.carsUrl, {headers: this.headers})
-    //             .toPromise()
-    //             .then(response => response.json().data as Car[])
-    //             .catch(this.handleError);
-    // }
-
-    getCars (): Observable<Car[]> {
+    getCars(): Promise<Car[]> {
         return this.http
-                .get(this.carsUrl)
-                .map(res => <Car[]>res.json())
+                .get(this.carsUrl, {headers: this.headers})
+                .toPromise()
+                //.then(response => response.json().data as Car[]) //testing
+                .then(response => response.json())  // live
                 .catch(this.handleError);
     }
-
-    private extractData(res: Response) {
-        let body = res.json();
-        //body = Array.of(body);
-        //return body.data;
-        return body.data || { };
-    }
-
 
     getCar(id: number): Promise<Car> {
         const url = `${this.carsUrl}/${id}`;
@@ -54,7 +36,8 @@ export class CarService {
         return this.http
                 .get(url)
                 .toPromise()
-                .then(response => response.json().data as Car)
+                //.then(response => response.json().data as Car)  // testing
+                .then(response => response.json())  // live
                 .catch(this.handleError);
     }
 

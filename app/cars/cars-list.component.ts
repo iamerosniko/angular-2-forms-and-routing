@@ -10,26 +10,15 @@ import { CarService } from './car.service'
 })
 
 export class CarsListComponent implements OnInit{
-    errorMessage: string;
     cars: Car[];
-    mode = 'Observable';
 
     constructor(
         private router: Router,
         private carService: CarService
     ) {}
 
-    // getCars(): void {
-    //     this.carService.getCars().then(cars => this.cars = cars);
-    // }
-
     getCars(): void {
-        this.carService
-            .getCars()
-            .subscribe(
-                cars => this.cars = cars,
-            error => this.errorMessage = <any>error
-            );
+        this.carService.getCars().then(cars => this.cars = cars);
     }
 
     ngOnInit(): void {
