@@ -5,15 +5,16 @@ import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 
 import { UploadComponent } from './upload.component';
 import { FileRouting } from './file.routing';
+
 @NgModule({
     imports: [
-        BrowserModule,
         CommonModule,
         FileRouting
     ],
     declarations: [
-       UploadComponent,FileSelectDirective 
-    ]
+       UploadComponent, FileSelectDirective , FileDropDirective
+    ],
+    bootstrap: [UploadComponent]
 })
 
 export class FileModule {}

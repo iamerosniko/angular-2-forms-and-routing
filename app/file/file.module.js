@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var platform_browser_1 = require('@angular/platform-browser');
 var ng2_file_upload_1 = require('ng2-file-upload');
 var upload_component_1 = require('./upload.component');
 var file_routing_1 = require('./file.routing');
@@ -20,13 +19,13 @@ var FileModule = (function () {
     FileModule = __decorate([
         core_1.NgModule({
             imports: [
-                platform_browser_1.BrowserModule,
                 common_1.CommonModule,
                 file_routing_1.FileRouting
             ],
             declarations: [
-                upload_component_1.UploadComponent, ng2_file_upload_1.FileSelectDirective
-            ]
+                upload_component_1.UploadComponent, ng2_file_upload_1.FileSelectDirective, ng2_file_upload_1.FileDropDirective
+            ],
+            bootstrap: [upload_component_1.UploadComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], FileModule);
