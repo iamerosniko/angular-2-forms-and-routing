@@ -3,9 +3,9 @@ import { Router } from '@angular/router'
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'car-form.component.html'
+    templateUrl: 'uploaddownload-form.component.html'
 })
 
-export class CarFormComponent {
+export class UploaddownloadFormComponent {
     
 }
