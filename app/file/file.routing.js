@@ -9,20 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
-var UploadDownloadModule = (function () {
-    function UploadDownloadModule() {
+var router_1 = require('@angular/router');
+var upload_component_1 = require('./upload.component');
+var fileRoutes = [
+    { path: 'file/upload', component: upload_component_1.UploadComponent },
+];
+var FileRouting = (function () {
+    function FileRouting() {
     }
-    UploadDownloadModule = __decorate([
+    FileRouting = __decorate([
         core_1.NgModule({
-            imports: [
-                common_1.CommonModule,
-            ],
-            declarations: [],
-            providers: []
+            imports: [router_1.RouterModule.forChild(fileRoutes)],
+            exports: [router_1.RouterModule]
         }), 
         __metadata('design:paramtypes', [])
-    ], UploadDownloadModule);
-    return UploadDownloadModule;
+    ], FileRouting);
+    return FileRouting;
 }());
-exports.UploadDownloadModule = UploadDownloadModule;
+exports.FileRouting = FileRouting;

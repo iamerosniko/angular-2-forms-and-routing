@@ -7,8 +7,8 @@ import { Car } from './car';
 @Injectable()
 export class CarService {
     private headers = new Headers({'Content-Type': 'application/json'});
-    //private carsUrl = 'api/cars';  // testing
-    private carsUrl = 'http://localhost:59916/api/ng2_cars';;  // live
+    private carsUrl = 'api/cars';  // testing
+    //private carsUrl = 'http://localhost:59916/api/ng2_cars';;  // live
 
     constructor(private http: Http){}
 
@@ -16,8 +16,8 @@ export class CarService {
         return this.http
             .post(this.carsUrl, JSON.stringify(newCar), {headers: this.headers})
             .toPromise()
-            //.then(res => res.json().data)  // testing
-            .then(res => res.json())  // live
+            .then(res => res.json().data)  // testing
+            //.then(res => res.json())  // live
             .catch(this.handleError);
     }
 
@@ -25,8 +25,8 @@ export class CarService {
         return this.http
                 .get(this.carsUrl, {headers: this.headers})
                 .toPromise()
-                //.then(response => response.json().data as Car[]) //testing
-                .then(response => response.json())  // live
+                .then(response => response.json().data as Car[]) //testing
+                //.then(response => response.json())  // live
                 .catch(this.handleError);
     }
 
@@ -36,8 +36,8 @@ export class CarService {
         return this.http
                 .get(url)
                 .toPromise()
-                //.then(response => response.json().data as Car)  // testing
-                .then(response => response.json())  // live
+                .then(response => response.json().data as Car)  // testing
+                //.then(response => response.json())  // live
                 .catch(this.handleError);
     }
 

@@ -10,20 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-//import { UploaddownloadFormComponent } from './uploaddownload-form.component';
-var UploadDownloadModule = (function () {
-    function UploadDownloadModule() {
+var upload_component_1 = require('./upload.component');
+var file_routing_1 = require('./file.routing');
+var FileModule = (function () {
+    function FileModule() {
     }
-    UploadDownloadModule = __decorate([
+    FileModule = __decorate([
         core_1.NgModule({
             imports: [
                 common_1.CommonModule,
+                file_routing_1.FileRouting
             ],
-            declarations: [],
-            providers: []
+            declarations: [
+                upload_component_1.UploadComponent
+            ]
         }), 
         __metadata('design:paramtypes', [])
-    ], UploadDownloadModule);
-    return UploadDownloadModule;
+    ], FileModule);
+    return FileModule;
 }());
-exports.UploadDownloadModule = UploadDownloadModule;
+exports.FileModule = FileModule;

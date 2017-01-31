@@ -9,16 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var UploaddownloadFormComponent = (function () {
-    function UploaddownloadFormComponent() {
+var UploadComponent = (function () {
+    function UploadComponent() {
     }
-    UploaddownloadFormComponent = __decorate([
+    UploadComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            templateUrl: 'uploaddownload-form.component.html'
+            templateUrl: 'upload.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], UploaddownloadFormComponent);
-    return UploaddownloadFormComponent;
+    ], UploadComponent);
+    return UploadComponent;
 }());
-exports.UploaddownloadFormComponent = UploaddownloadFormComponent;
+exports.UploadComponent = UploadComponent;
