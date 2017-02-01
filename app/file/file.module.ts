@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 
@@ -9,13 +8,12 @@ import { FileRouting } from './file.routing';
 @NgModule({
     imports: [
         BrowserModule,
-        CommonModule,
         FileRouting
     ],
     declarations: [FileSelectDirective , FileDropDirective,
        UploadComponent
     ],
-    bootstrap: [UploadComponent]
+    bootstrap: [ UploadComponent ]
 })
 
 export class FileModule {}

@@ -12,7 +12,7 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var upload_component_1 = require('./upload.component');
 var fileRoutes = [
-    { path: 'file/upload', component: upload_component_1.UploadComponent },
+    { path: 'file/upload', component: upload_component_1.UploadComponent }
 ];
 var FileRouting = (function () {
     function FileRouting() {

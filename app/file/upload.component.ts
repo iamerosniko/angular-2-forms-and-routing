@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'; 
+import { Component } from '@angular/core'; 
 import { FileUploader } from 'ng2-file-upload';
 
 @Component({
@@ -6,4 +6,6 @@ import { FileUploader } from 'ng2-file-upload';
     templateUrl : 'upload.component.html' 
    
 })
-export class UploadComponent {}
+export class UploadComponent {
+    public uploader:FileUploader = new FileUploader({url:'http://localhost:3001/upload'});
+}

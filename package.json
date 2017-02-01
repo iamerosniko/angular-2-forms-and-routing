@@ -30,14 +30,15 @@
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
     "ng2-file-upload": "^1.1.2",
+    "reflect-metadata": "^0.1.8",
     "jquery": "~1.12.4",
     "rxjs": "5.0.1",
     "systemjs": "0.19.40",
-    "zone.js": "^0.7.4",
-    "reflect-metadata": "^0.1.8"
+    "zone.js": "^0.7.4"
 
   },
   "devDependencies": {
+    "live-server": "^1.1.0",
     "concurrently": "^3.1.0",
     "lite-server": "^2.2.2",
     "typescript": "~2.0.10",
