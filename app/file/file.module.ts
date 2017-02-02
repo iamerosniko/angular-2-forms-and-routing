@@ -11,6 +11,7 @@ import { FileRouting } from './file.routing';
 @NgModule({
     imports: [
         BrowserModule,
+        HttpModule,
         FileRouting
     ],
     declarations: [

@@ -17,8 +17,7 @@ var DownloadComponent = (function () {
         this.downloadService = downloadService;
     }
     DownloadComponent.prototype.getFiles = function () {
-        var _this = this;
-        this.downloadService.getFiles().then(function (files) { return _this.files = files; });
+        //this.downloadService.getFiles().then(files => this.files = files);
     };
     DownloadComponent.prototype.ngOnInit = function () {
         this.getFiles();

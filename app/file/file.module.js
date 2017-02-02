@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var ng2_file_upload_1 = require('ng2-file-upload');
+var http_1 = require('@angular/http');
 var upload_component_1 = require('./upload.component');
 var download_component_1 = require('./download.component');
 var file_routing_1 = require('./file.routing');
@@ -21,6 +22,7 @@ var FileModule = (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
+                http_1.HttpModule,
                 file_routing_1.FileRouting
             ],
             declarations: [
