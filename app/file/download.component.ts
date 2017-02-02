@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
     moduleId: module.id,
-    templateUrl : 'upload.component.html' 
+    template : 'HELLO' 
    
 })
 export class DownloadComponent {

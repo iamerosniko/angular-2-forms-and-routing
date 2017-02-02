@@ -11,10 +11,11 @@ import { FileRouting } from './file.routing';
         BrowserModule,
         FileRouting
     ],
-    declarations: [FileSelectDirective , FileDropDirective,
-       UploadComponent
-    ],
-    bootstrap: [ UploadComponent ]
+    declarations: [
+        FileSelectDirective , FileDropDirective,
+        UploadComponent, DownloadComponent
+    ]
+    //,bootstrap: [ UploadComponent ]
 })
 
 export class FileModule {}
