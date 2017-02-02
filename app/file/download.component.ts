@@ -6,7 +6,9 @@ import { DownloadService } from './download.service'
 
 @Component({
     moduleId: module.id,
-    template: `hello`
+    template: `
+    hello
+    `
 })
 
 export class DownloadComponent implements OnInit{
@@ -26,6 +28,6 @@ export class DownloadComponent implements OnInit{
     }
 
     onSelect(file: File) {
-        this.router.navigate(['/download', file.filename]);
+        this.router.navigate(['file/download', file.filename]);
     }
 }

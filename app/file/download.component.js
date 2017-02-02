@@ -24,12 +24,12 @@ var DownloadComponent = (function () {
         this.getFiles();
     };
     DownloadComponent.prototype.onSelect = function (file) {
-        this.router.navigate(['/download', file.filename]);
+        this.router.navigate(['file/download', file.filename]);
     };
     DownloadComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            template: "hello"
+            template: "\n    hello\n    "
         }), 
         __metadata('design:paramtypes', [router_1.Router, download_service_1.DownloadService])
     ], DownloadComponent);

@@ -7,7 +7,7 @@ import { File } from './file';
 @Injectable()
 export class DownloadService {
     private headers = new Headers({'Content-Type': 'application/json'});
-    private downloadUrl = 'api/download';  // testing
+    private downloadUrl = '/download';  // testing
     //private downloadUrl = 'http://localhost:59916/api/ng2_cars';;  // live
 
     constructor(private http: Http){}

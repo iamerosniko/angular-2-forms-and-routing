@@ -16,7 +16,7 @@ var DownloadService = (function () {
     function DownloadService(http) {
         this.http = http;
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        this.downloadUrl = 'api/download'; // testing
+        this.downloadUrl = '/download'; // testing
     }
     DownloadService.prototype.postFile = function (newFile) {
         return this.http
