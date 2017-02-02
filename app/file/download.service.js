@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-//import 'rxjs/add/operator/toPromise';
+require('rxjs/add/operator/toPromise');
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 var DownloadService = (function () {
@@ -18,6 +18,48 @@ var DownloadService = (function () {
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         this.downloadUrl = 'api/download'; // testing
     }
+    DownloadService.prototype.postFile = function (newFile) {
+        return this.http
+            .post(this.downloadUrl, JSON.stringify(newFile), { headers: this.headers })
+            .toPromise()
+            .then(function (res) { return res.json().data; }) // testing
+            .catch(this.handleError);
+    };
+    DownloadService.prototype.getFiles = function () {
+        return this.http
+            .get(this.downloadUrl, { headers: this.headers })
+            .toPromise()
+            .then(function (response) { return response.json().data; }) //testing
+            .catch(this.handleError);
+    };
+    DownloadService.prototype.getFile = function (fileName) {
+        var url = this.downloadUrl + "/" + fileName;
+        return this.http
+            .get(url)
+            .toPromise()
+            .then(function (response) { return response.json().data; }) // testing
+            .catch(this.handleError);
+    };
+    DownloadService.prototype.putFile = function (file) {
+        var url = this.downloadUrl + "/";
+        //${car.id}
+        return this.http
+            .put(url, JSON.stringify(file), { headers: this.headers })
+            .toPromise()
+            .then(function () { return file; })
+            .catch(this.handleError);
+    };
+    DownloadService.prototype.deleteFile = function (fileName) {
+        var url = this.downloadUrl + "/" + fileName;
+        return this.http.delete(url, { headers: this.headers })
+            .toPromise()
+            .then(function () { return null; })
+            .catch(this.handleError);
+    };
+    DownloadService.prototype.handleError = function (error) {
+        console.error('An error occurred', error); // for demo purposes only
+        return Promise.reject(error.message || error);
+    };
     DownloadService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
