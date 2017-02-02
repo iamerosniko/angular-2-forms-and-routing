@@ -18,39 +18,39 @@ var DownloadService = (function () {
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         this.downloadUrl = 'api/download'; // testing
     }
-    DownloadService.prototype.postCar = function (newCar) {
+    DownloadService.prototype.postFile = function (newFile) {
         return this.http
-            .post(this.downloadUrl, JSON.stringify(newCar), { headers: this.headers })
+            .post(this.downloadUrl, JSON.stringify(newFile), { headers: this.headers })
             .toPromise()
             .then(function (res) { return res.json().data; }) // testing
             .catch(this.handleError);
     };
-    DownloadService.prototype.getCars = function () {
+    DownloadService.prototype.getFiles = function () {
         return this.http
             .get(this.downloadUrl, { headers: this.headers })
             .toPromise()
             .then(function (response) { return response.json().data; }) //testing
             .catch(this.handleError);
     };
-    DownloadService.prototype.getCar = function (id) {
-        var url = this.downloadUrl + "/" + id;
+    DownloadService.prototype.getFile = function (fileName) {
+        var url = this.downloadUrl + "/" + fileName;
         return this.http
             .get(url)
             .toPromise()
             .then(function (response) { return response.json().data; }) // testing
             .catch(this.handleError);
     };
-    DownloadService.prototype.putCar = function (car) {
+    DownloadService.prototype.putFile = function (file) {
         var url = this.downloadUrl + "/";
         //${car.id}
         return this.http
-            .put(url, JSON.stringify(car), { headers: this.headers })
+            .put(url, JSON.stringify(file), { headers: this.headers })
             .toPromise()
-            .then(function () { return car; })
+            .then(function () { return file; })
             .catch(this.handleError);
     };
-    DownloadService.prototype.deleteCar = function (id) {
-        var url = this.downloadUrl + "/" + id;
+    DownloadService.prototype.deleteFile = function (fileName) {
+        var url = this.downloadUrl + "/" + fileName;
         return this.http.delete(url, { headers: this.headers })
             .toPromise()
             .then(function () { return null; })

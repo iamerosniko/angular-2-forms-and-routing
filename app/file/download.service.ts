@@ -12,16 +12,16 @@ export class DownloadService {
 
     constructor(private http: Http){}
 
-    postCar(newCar: File): Promise<File> {
+    postFile(newFile: File): Promise<File> {
         return this.http
-            .post(this.downloadUrl, JSON.stringify(newCar), {headers: this.headers})
+            .post(this.downloadUrl, JSON.stringify(newFile), {headers: this.headers})
             .toPromise()
             .then(res => res.json().data)  // testing
             //.then(res => res.json())  // live
             .catch(this.handleError);
     }
 
-    getCars(): Promise<File[]> {
+    getFiles(): Promise<File[]> {
         return this.http
                 .get(this.downloadUrl, {headers: this.headers})
                 .toPromise()
@@ -30,8 +30,8 @@ export class DownloadService {
                 .catch(this.handleError);
     }
 
-    getCar(id: number): Promise<File> {
-        const url = `${this.downloadUrl}/${id}`;
+    getFile(fileName: string): Promise<File> {
+        const url = `${this.downloadUrl}/${fileName}`;
 
         return this.http
                 .get(url)
@@ -41,18 +41,18 @@ export class DownloadService {
                 .catch(this.handleError);
     }
 
-    putCar(car: File): Promise<File> {
+    putFile(file: File): Promise<File> {
         const url = `${this.downloadUrl}/`;
         //${car.id}
         return this.http
-                .put(url, JSON.stringify(car), {headers: this.headers})
+                .put(url, JSON.stringify(file), {headers: this.headers})
                 .toPromise()
-                .then(() => car)
+                .then(() => file)
                 .catch(this.handleError);
     }
 
-    deleteCar(id: number): Promise<void> {
-        const url = `${this.downloadUrl}/${id}`;
+    deleteFile(fileName: string): Promise<void> {
+        const url = `${this.downloadUrl}/${fileName}`;
 
         return this.http.delete(url, {headers: this.headers})
                 .toPromise()
