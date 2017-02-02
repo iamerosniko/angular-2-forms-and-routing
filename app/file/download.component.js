@@ -9,27 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var ng2_file_upload_1 = require('ng2-file-upload');
-var upload_component_1 = require('./upload.component');
-var download_component_1 = require('./download.component');
-var file_routing_1 = require('./file.routing');
-var FileModule = (function () {
-    function FileModule() {
+var DownloadComponent = (function () {
+    function DownloadComponent() {
     }
-    FileModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                platform_browser_1.BrowserModule,
-                file_routing_1.FileRouting
-            ],
-            declarations: [
-                ng2_file_upload_1.FileSelectDirective, ng2_file_upload_1.FileDropDirective,
-                upload_component_1.UploadComponent, download_component_1.DownloadComponent
-            ]
+    DownloadComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            template: 'HELLO'
         }), 
         __metadata('design:paramtypes', [])
-    ], FileModule);
-    return FileModule;
+    ], DownloadComponent);
+    return DownloadComponent;
 }());
-exports.FileModule = FileModule;
+exports.DownloadComponent = DownloadComponent;
