@@ -13,7 +13,6 @@ var router_1 = require('@angular/router');
 //import { File } from './file';
 var download_service_1 = require('./download.service');
 var DownloadComponent = (function () {
-    //files: File[];
     function DownloadComponent(router, downloadService) {
         this.router = router;
         this.downloadService = downloadService;
@@ -24,9 +23,12 @@ var DownloadComponent = (function () {
     DownloadComponent.prototype.ngOnInit = function () {
         this.getFiles();
     };
+    DownloadComponent.prototype.onSelect = function (file) {
+        this.router.navigate(['file/download', file.filename]);
+    };
     DownloadComponent = __decorate([
         core_1.Component({
-            template: "\n    hello\n    "
+            template: "\n    <table class=\"table table-hover\">\n    <thead>\n        <tr>\n            <th>filename</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let file of files\" (click)=\"onSelect(file)\">\n            <td>{{file.filename}}</td>\n        </tr>\n    </tbody>\n</table>\n    "
         }), 
         __metadata('design:paramtypes', [router_1.Router, download_service_1.DownloadService])
     ], DownloadComponent);
