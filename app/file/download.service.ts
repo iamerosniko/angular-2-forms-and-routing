@@ -2,6 +2,7 @@ import 'rxjs/add/operator/toPromise';
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 
+import { File } from './file';
 
 @Injectable()
 export class DownloadService {

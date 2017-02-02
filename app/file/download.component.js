@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-//import { File } from './file';
 var download_service_1 = require('./download.service');
 var DownloadComponent = (function () {
     function DownloadComponent(router, downloadService) {
@@ -18,7 +17,8 @@ var DownloadComponent = (function () {
         this.downloadService = downloadService;
     }
     DownloadComponent.prototype.getFiles = function () {
-        //this.downloadService.getFiles().then(files => this.files = files);
+        var _this = this;
+        this.downloadService.getFiles().then(function (files) { return _this.files = files; });
     };
     DownloadComponent.prototype.ngOnInit = function () {
         this.getFiles();

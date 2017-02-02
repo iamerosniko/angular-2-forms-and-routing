@@ -30,7 +30,7 @@ export class DownloadComponent implements OnInit{
     ) {}
 
     getFiles(): void {
-        //this.downloadService.getFiles().then(files => this.files = files);
+        this.downloadService.getFiles().then(files => this.files = files);
     }
 
     ngOnInit(): void {
