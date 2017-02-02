@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 
 import { UploadComponent } from './upload.component';
+import { DownloadComponent } from './download.component';
 import { FileRouting } from './file.routing';
 
 @NgModule({
