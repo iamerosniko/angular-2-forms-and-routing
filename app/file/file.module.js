@@ -14,6 +14,7 @@ var ng2_file_upload_1 = require('ng2-file-upload');
 var http_1 = require('@angular/http');
 var upload_component_1 = require('./upload.component');
 var download_component_1 = require('./download.component');
+var download_service_1 = require('./download.service');
 var file_routing_1 = require('./file.routing');
 var FileModule = (function () {
     function FileModule() {
@@ -28,6 +29,9 @@ var FileModule = (function () {
             declarations: [
                 ng2_file_upload_1.FileSelectDirective, ng2_file_upload_1.FileDropDirective,
                 upload_component_1.UploadComponent, download_component_1.DownloadComponent
+            ],
+            providers: [
+                download_service_1.DownloadService
             ]
         }), 
         __metadata('design:paramtypes', [])

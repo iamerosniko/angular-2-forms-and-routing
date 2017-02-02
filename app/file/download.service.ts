@@ -1,8 +1,7 @@
-import 'rxjs/add/operator/toPromise';
+//import 'rxjs/add/operator/toPromise';
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 
-import { File } from './file';
 
 @Injectable()
 export class DownloadService {
@@ -13,8 +12,8 @@ export class DownloadService {
     constructor(private http: Http){}
 
 
-    private handleError(error: any): Promise<any> {
-        console.error('An error occurred', error); // for demo purposes only
-        return Promise.reject(error.message || error);
-    }
+    //private handleError(error: any): Promise<any> {
+    //    console.error('An error occurred', error); // for demo purposes only
+    //    return Promise.reject(error.message || error);
+    //}
 }

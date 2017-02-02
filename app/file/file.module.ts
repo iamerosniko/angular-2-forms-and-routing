@@ -6,6 +6,10 @@ import { HttpModule } from '@angular/http';
 
 import { UploadComponent } from './upload.component';
 import { DownloadComponent } from './download.component';
+
+
+import { DownloadService } from './download.service';
+
 import { FileRouting } from './file.routing';
 
 @NgModule({
@@ -17,6 +21,9 @@ import { FileRouting } from './file.routing';
     declarations: [
         FileSelectDirective , FileDropDirective,
         UploadComponent, DownloadComponent
+    ],
+    providers: [
+        DownloadService
     ]
     //,bootstrap: [ UploadComponent ]
 })

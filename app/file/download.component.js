@@ -10,8 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+//import { File } from './file';
 var download_service_1 = require('./download.service');
 var DownloadComponent = (function () {
+    //files: File[];
     function DownloadComponent(router, downloadService) {
         this.router = router;
         this.downloadService = downloadService;
@@ -22,12 +24,8 @@ var DownloadComponent = (function () {
     DownloadComponent.prototype.ngOnInit = function () {
         this.getFiles();
     };
-    DownloadComponent.prototype.onSelect = function (file) {
-        this.router.navigate(['file/download', file.filename]);
-    };
     DownloadComponent = __decorate([
         core_1.Component({
-            moduleId: module.id,
             template: "\n    hello\n    "
         }), 
         __metadata('design:paramtypes', [router_1.Router, download_service_1.DownloadService])
