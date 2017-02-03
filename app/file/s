@@ -46,3 +46,6 @@
                 .then(() => null)
                 .catch(this.handleError);
     }
+
+
+    test ok
