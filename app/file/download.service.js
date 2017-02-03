@@ -16,7 +16,7 @@ var DownloadService = (function () {
         this.http = http;
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         //private downloadUrl = 'api/download';  // testing
-        this.downloadUrl = 'http://localhost:59916/api/ng2_cars';
+        this.downloadUrl = 'http://localhost:59916/api/download';
     }
     ;
     DownloadService.prototype.getFiles = function () {
@@ -27,11 +27,10 @@ var DownloadService = (function () {
             .catch(this.handleError);
     };
     DownloadService.prototype.getFile = function (fileName) {
-        var url = this.downloadUrl + "/" + fileName;
+        var url = this.downloadUrl + "/?filename=" + fileName;
         return this.http
             .get(url)
             .toPromise()
-            .then(function (response) { return response.json(); }) // live
             .catch(this.handleError);
     };
     DownloadService.prototype.handleError = function (error) {

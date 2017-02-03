@@ -4,9 +4,8 @@ var DownloadMemoryService = (function () {
     }
     DownloadMemoryService.prototype.createDb = function () {
         var download = [
-            { filename: "image.png" },
-            { filename: "image.png" },
-            { filename: "image.png" }
+            { filename: "Image 12.png", filePath: "C:\Users\alverer\Documents\GitHub\ng2-api\solution\ng2-api\upload" },
+            { filename: "Image 37.png", filePath: "C:\Users\alverer\Documents\GitHub\ng2-api\solution\ng2-api\upload" }
         ];
         return { download: download };
     };

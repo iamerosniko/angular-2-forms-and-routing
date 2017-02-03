@@ -26,6 +26,7 @@ export class DownloadComponent implements OnInit{
     }
 
     onSelect(file: File) {
-        this.router.navigate(['file/download', file.filename]);
+        //this.router.navigate(['/download', file.filename]);
+        this.downloadService.getFile(file.filename);
     }
 }

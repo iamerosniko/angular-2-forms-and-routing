@@ -7,7 +7,7 @@ import { File } from './file';
 export class DownloadService {
     private headers = new Headers({'Content-Type': 'application/json'});
     //private downloadUrl = 'api/download';  // testing
-    private downloadUrl = 'http://localhost:59916/api/ng2_cars';;  // live
+    private downloadUrl = 'http://localhost:59916/api/download';;  // live
 
     constructor(private http: Http){}
 
@@ -18,19 +18,20 @@ export class DownloadService {
                 //.then(response => response.json().data as File[]) //testing
                 .then(response => response.json())  // live
                 .catch(this.handleError);
-                
-    }
 
-    getFile(fileName: string): Promise<File> {
-        const url = `${this.downloadUrl}/${fileName}`;
+    }
+    
+    getFile(fileName: string): Promise<void>{
+        const url = `${this.downloadUrl}/?filename=${fileName}`;
 
         return this.http
                 .get(url)
                 .toPromise()
                 //.then(response => response.json().data as File)  // testing
-                .then(response => response.json())  // live
+                //.then(response => response.json())  // live
                 .catch(this.handleError);
     }
+    
 
 
     private handleError(error: any): Promise<any> {
