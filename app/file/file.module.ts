@@ -5,7 +5,8 @@ import { HttpModule } from '@angular/http';
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
+import { DownloadMemoryService }  from './download-memory.service';
+//import { InMemoryDataService }  from '../cars/in-memory-data.service';
 
 import { UploadComponent } from './upload.component';
 import { DownloadComponent } from './download.component';
@@ -19,7 +20,8 @@ import { FileRouting } from './file.routing';
     imports: [
         BrowserModule,
         HttpModule,
-        InMemoryWebApiModule.forRoot(InMemoryDataService),
+        InMemoryWebApiModule.forRoot(DownloadMemoryService),
+        //InMemoryWebApiModule.forRoot(InMemoryDataService),
         FileRouting
     ],
     declarations: [

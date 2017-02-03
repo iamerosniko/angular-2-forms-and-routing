@@ -7,5 +7,6 @@ export class InMemoryDataService implements InMemoryDbService {
         {id: 3, brand: 'Toyota', model: 'Innova', fuelType: 'Diesel', bodyStyle: 'Suvs', topSpeed: 100, power: 150}
     ];
     return {cars};
+
   }
 }
