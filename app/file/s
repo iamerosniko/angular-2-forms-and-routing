@@ -46,11 +46,3 @@
                 .then(() => null)
                 .catch(this.handleError);
     }
-
-
-    test ok
-
-    asdf
-    asdf
-    asdf
-    
