@@ -5,20 +5,8 @@ import { File } from './file';
 import { DownloadService } from './download.service'
 
 @Component({
-    template: `
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>filename</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let file of files" (click)="onSelect(file)">
-                <td>{{file.filename}}</td>
-            </tr>
-        </tbody>
-    </table>
-    `
+     moduleId: module.id,
+    templateUrl: `download.components.html`
 })
 
 export class DownloadComponent implements OnInit{
