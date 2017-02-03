@@ -12,17 +12,18 @@ require('rxjs/add/operator/toPromise');
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 var DownloadService = (function () {
-    //private downloadUrl = 'http://localhost:59916/api/ng2_cars';;  // live
     function DownloadService(http) {
         this.http = http;
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        this.downloadUrl = 'api/download'; // testing
+        //private downloadUrl = 'api/download';  // testing
+        this.downloadUrl = 'http://localhost:59916/api/ng2_cars';
     }
+    ;
     DownloadService.prototype.getFiles = function () {
         return this.http
             .get(this.downloadUrl, { headers: this.headers })
             .toPromise()
-            .then(function (response) { return response.json().data; }) //testing
+            .then(function (response) { return response.json(); }) // live
             .catch(this.handleError);
     };
     DownloadService.prototype.getFile = function (fileName) {
@@ -30,7 +31,7 @@ var DownloadService = (function () {
         return this.http
             .get(url)
             .toPromise()
-            .then(function (response) { return response.json().data; }) // testing
+            .then(function (response) { return response.json(); }) // live
             .catch(this.handleError);
     };
     DownloadService.prototype.handleError = function (error) {

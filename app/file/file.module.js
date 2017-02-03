@@ -12,8 +12,7 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var http_1 = require('@angular/http');
 var ng2_file_upload_1 = require('ng2-file-upload');
-var angular_in_memory_web_api_1 = require('angular-in-memory-web-api');
-var download_memory_service_1 = require('./download-memory.service');
+//import { DownloadMemoryService }  from './download-memory.service';
 //import { InMemoryDataService }  from '../cars/in-memory-data.service';
 var upload_component_1 = require('./upload.component');
 var download_component_1 = require('./download.component');
@@ -27,7 +26,7 @@ var FileModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 http_1.HttpModule,
-                angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(download_memory_service_1.DownloadMemoryService),
+                //InMemoryWebApiModule.forRoot(DownloadMemoryService),
                 //InMemoryWebApiModule.forRoot(InMemoryDataService),
                 file_routing_1.FileRouting
             ],

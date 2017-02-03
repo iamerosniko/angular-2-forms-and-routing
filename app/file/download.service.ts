@@ -6,8 +6,8 @@ import { File } from './file';
 @Injectable()
 export class DownloadService {
     private headers = new Headers({'Content-Type': 'application/json'});
-    private downloadUrl = 'api/download';  // testing
-    //private downloadUrl = 'http://localhost:59916/api/ng2_cars';;  // live
+    //private downloadUrl = 'api/download';  // testing
+    private downloadUrl = 'http://localhost:59916/api/ng2_cars';;  // live
 
     constructor(private http: Http){}
 
@@ -15,9 +15,10 @@ export class DownloadService {
         return this.http
                 .get(this.downloadUrl, {headers: this.headers})
                 .toPromise()
-                .then(response => response.json().data as File[]) //testing
-                //.then(response => response.json())  // live
+                //.then(response => response.json().data as File[]) //testing
+                .then(response => response.json())  // live
                 .catch(this.handleError);
+                
     }
 
     getFile(fileName: string): Promise<File> {
@@ -26,8 +27,8 @@ export class DownloadService {
         return this.http
                 .get(url)
                 .toPromise()
-                .then(response => response.json().data as File)  // testing
-                //.then(response => response.json())  // live
+                //.then(response => response.json().data as File)  // testing
+                .then(response => response.json())  // live
                 .catch(this.handleError);
     }
 
