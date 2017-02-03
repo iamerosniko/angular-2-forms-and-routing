@@ -10,8 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
-var ng2_file_upload_1 = require('ng2-file-upload');
 var http_1 = require('@angular/http');
+var ng2_file_upload_1 = require('ng2-file-upload');
+var angular_in_memory_web_api_1 = require('angular-in-memory-web-api');
+var in_memory_data_service_1 = require('./in-memory-data.service');
 var upload_component_1 = require('./upload.component');
 var download_component_1 = require('./download.component');
 var download_service_1 = require('./download.service');
@@ -24,11 +26,14 @@ var FileModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 http_1.HttpModule,
+                angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(in_memory_data_service_1.InMemoryDataService),
                 file_routing_1.FileRouting
             ],
             declarations: [
-                ng2_file_upload_1.FileSelectDirective, ng2_file_upload_1.FileDropDirective,
-                upload_component_1.UploadComponent, download_component_1.DownloadComponent
+                ng2_file_upload_1.FileSelectDirective,
+                ng2_file_upload_1.FileDropDirective,
+                upload_component_1.UploadComponent,
+                download_component_1.DownloadComponent
             ],
             providers: [
                 download_service_1.DownloadService

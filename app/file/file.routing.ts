@@ -6,7 +6,7 @@ import { DownloadComponent } from './download.component';
 
 const fileRoutes: Routes = [
     {path: 'file/upload', component: UploadComponent},
-    {path: 'file/download', component: DownloadComponent},
+    {path: 'download', component: DownloadComponent},
 ];
 
  @NgModule ({

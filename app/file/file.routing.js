@@ -14,7 +14,7 @@ var upload_component_1 = require('./upload.component');
 var download_component_1 = require('./download.component');
 var fileRoutes = [
     { path: 'file/upload', component: upload_component_1.UploadComponent },
-    { path: 'file/download', component: download_component_1.DownloadComponent },
+    { path: 'download', component: download_component_1.DownloadComponent },
 ];
 var FileRouting = (function () {
     function FileRouting() {
