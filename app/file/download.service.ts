@@ -21,18 +21,10 @@ export class DownloadService {
 
     }
     
-    getFile(fileName: string): Promise<void>{
-        const url = `${this.downloadUrl}/?filename=${fileName}`;
-
-        return this.http
-                .get(url)
-                .toPromise()
-                //.then(response => response.json().data as File)  // testing
-                //.then(response => response.json())  // live
-                .catch(this.handleError);
+    getFile(fName: string){
+        const url = `${this.downloadUrl}/?filename=${fName}`;
+        var win = window.open(url);
     }
-    
-
 
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only
